@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import { Github, Linkedin, Mail, Phone, MapPin, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -29,13 +28,13 @@ export function HeroSection() {
         {/* Profile Image */}
         <div className="relative">
           <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20">
-            <Image
+            <img
               src="/images/profile.png"
               alt="Siva Teja Nune Puttaparthi"
+              className="object-cover object-top w-full h-full"
               width={208}
               height={208}
-              className="object-cover object-top w-full h-full"
-              priority
+              loading="eager"
             />
           </div>
           <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-4 border-background" />

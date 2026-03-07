@@ -3,6 +3,8 @@ node_modules/
 .next/
 .out/
 out/
+dist/
 .env
+.env.local
 .env*.local
 .DS_Store

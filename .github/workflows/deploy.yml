@@ -1,4 +1,4 @@
-name: Deploy Next.js to GitHub Pages
+name: Deploy Vite App to GitHub Pages
 
 on:
   push:
@@ -42,12 +42,12 @@ jobs:
         run: pnpm build
 
       - name: Add .nojekyll
-        run: touch out/.nojekyll
+        run: touch dist/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./dist
 
   deploy:
     environment:

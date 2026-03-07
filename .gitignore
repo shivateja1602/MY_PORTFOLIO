@@ -1,0 +1,8 @@
+# Common ignores
+node_modules/
+.next/
+.out/
+out/
+.env
+.env*.local
+.DS_Store

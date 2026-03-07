@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
+  const profileImageSrc = `${import.meta.env.BASE_URL}images/profile.png`
 
   useEffect(() => {
     setIsVisible(true)
@@ -29,7 +30,7 @@ export function HeroSection() {
         <div className="relative">
           <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20">
             <img
-              src="/images/profile.png"
+              src={profileImageSrc}
               alt="Siva Teja Nune Puttaparthi"
               className="object-cover object-top w-full h-full"
               width={208}

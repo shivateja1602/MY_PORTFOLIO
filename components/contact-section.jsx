@@ -21,7 +21,7 @@ const contactInfo = [
     icon: MapPin,
     label: "Location",
     value: "Dharmavaram, Andhra Pradesh, India",
-    href: null,
+    href: "https://www.google.com/maps/search/?api=1&query=Dharmavaram%2C%20Andhra%20Pradesh%2C%20India",
   },
 ]
 
@@ -121,7 +121,7 @@ export function ContactSection() {
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground">
-            Designed and built by Siva Teja Nune Puttaparthi
+            Designed and built by Shiva Teja Nune Puttaparthi
           </p>
         </div>
       </div>

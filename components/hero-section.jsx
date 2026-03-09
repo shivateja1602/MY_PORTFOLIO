@@ -31,7 +31,7 @@ export function HeroSection() {
           <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20">
             <img
               src={profileImageSrc}
-              alt="Siva Teja Nune Puttaparthi"
+              alt="Shiva Teja Nune Puttaparthi"
               className="object-cover object-top w-full h-full"
               width={208}
               height={208}
@@ -44,7 +44,7 @@ export function HeroSection() {
         {/* Name and Title */}
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 text-balance">
-            Siva Teja Nune Puttaparthi
+            Shiva Teja Nune Puttaparthi
           </h1>
           <p className="text-xl md:text-2xl text-primary font-medium mb-4">
             Cloud Engineer & Software Developer

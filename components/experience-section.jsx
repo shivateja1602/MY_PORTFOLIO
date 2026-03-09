@@ -23,7 +23,7 @@ const experiences = [
     organization: "Madanapalle Institute of Technology & Science",
     location: "Madanapalle, Andhra Pradesh",
     duration: "2022 - May 2026",
-    description: ["CGPA: 8.46/10", "Relevant Coursework: Data Structures, Algorithms, Cloud Computing, Web Development"],
+    description: ["CGPA: 8.46/10", "Relevant Coursework: Data Structures, Cloud Computing, Web Development"],
   },
   {
     type: "education",

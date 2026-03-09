@@ -18,18 +18,6 @@ const experiences = [
     ],
   },
   {
-    type: "work",
-    title: "Web Development Intern",
-    organization: "Enkonix Software Services",
-    location: "Bengaluru, India",
-    duration: "2024",
-    description: [
-      "Assisted in web development projects",
-      "Gained hands-on experience in frontend technologies",
-      "Mentored peers in improving their web development skills",
-    ],
-  },
-  {
     type: "education",
     title: "B.Tech in Computer Science & Technology (IV-I)",
     organization: "Madanapalle Institute of Technology & Science",

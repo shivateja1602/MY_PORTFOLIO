@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react"
+import { Mail, MessageCircle, MapPin, Github, Linkedin, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -12,10 +12,10 @@ const contactInfo = [
     href: "mailto:shivateja1602@gmail.com",
   },
   {
-    icon: Phone,
-    label: "Phone",
+    icon: MessageCircle,
+    label: "Call / WhatsApp",
     value: "+91 6305189399",
-    href: "tel:+916305189399",
+    href: "https://wa.me/916305189399",
   },
   {
     icon: MapPin,

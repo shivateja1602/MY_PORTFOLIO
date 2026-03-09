@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Github, Linkedin, Mail, Phone, MapPin, ChevronDown } from "lucide-react"
+import { Github, Linkedin, Mail, MessageCircle, MapPin, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
@@ -89,11 +89,13 @@ export function HeroSection() {
             <Mail className="w-5 h-5" />
           </a>
           <a
-            href="tel:+916305189399"
+            href="https://wa.me/916305189399"
+            target="_blank"
+            rel="noopener noreferrer"
             className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
-            aria-label="Phone"
+            aria-label="WhatsApp"
           >
-            <Phone className="w-5 h-5" />
+            <MessageCircle className="w-5 h-5" />
           </a>
         </div>
 

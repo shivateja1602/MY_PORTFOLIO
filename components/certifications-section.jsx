@@ -34,18 +34,21 @@ const certifications = [
     issuer: "Google Cloud",
     date: "September 2024",
     type: "badge",
+    href: "https://www.credly.com/users/shiva-teja.6521e6e9/badges#credly",
   },
   {
     title: "AWS Educate Machine Learning Foundations",
     issuer: "AWS Educate",
     date: "July 2025",
     type: "badge",
+    href: "https://www.credly.com/users/shiva-teja.6521e6e9/badges#credly",
   },
   {
     title: "AWS Academy Cloud Foundations",
     issuer: "AWS Academy",
     date: "August 2025",
     type: "badge",
+    href: "https://www.credly.com/users/shiva-teja.6521e6e9/badges#credly",
   },
 ]
 
@@ -97,19 +100,21 @@ export function CertificationsSection() {
             </h3>
             <div className="space-y-4">
               {badges.map((badge) => (
-                <Card key={badge.title} className="bg-card border-border hover:border-primary/50 transition-all">
-                  <CardContent className="p-4">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h4 className="font-medium text-foreground">{badge.title}</h4>
-                        <p className="text-sm text-muted-foreground">{badge.issuer}</p>
+                <a key={badge.title} href={badge.href} target="_blank" rel="noopener noreferrer" className="block">
+                  <Card className="bg-card border-border hover:border-primary/50 transition-all">
+                    <CardContent className="p-4">
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <h4 className="font-medium text-foreground">{badge.title}</h4>
+                          <p className="text-sm text-muted-foreground">{badge.issuer}</p>
+                        </div>
+                        <Badge variant="secondary" className="bg-secondary text-secondary-foreground shrink-0">
+                          {badge.date}
+                        </Badge>
                       </div>
-                      <Badge variant="secondary" className="bg-secondary text-secondary-foreground shrink-0">
-                        {badge.date}
-                      </Badge>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </a>
               ))}
             </div>
           </div>

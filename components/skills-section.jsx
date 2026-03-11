@@ -8,80 +8,118 @@ const skillCategories = [
     title: "Programming Languages",
     icon: Code,
     skills: ["Python", "Java", "JavaScript"],
-    color: "text-blue-400",
+    tone: "from-sky-500/30 via-blue-500/20 to-indigo-500/30",
+    iconColor: "text-sky-300",
+    level: 90,
   },
   {
     title: "Web Technologies",
     icon: Globe,
     skills: ["React", "HTML", "CSS", "Tailwind CSS", "WordPress"],
-    color: "text-cyan-400",
+    tone: "from-cyan-500/30 via-teal-500/20 to-emerald-500/30",
+    iconColor: "text-cyan-300",
+    level: 92,
   },
   {
     title: "Databases",
     icon: Database,
     skills: ["MySQL", "MongoDB"],
-    color: "text-green-400",
+    tone: "from-emerald-500/30 via-green-500/20 to-lime-500/30",
+    iconColor: "text-emerald-300",
+    level: 82,
   },
   {
     title: "Cloud & AI",
     icon: Cloud,
     skills: ["AWS Cloud Fundamentals", "Generative AI APIs"],
-    color: "text-orange-400",
+    tone: "from-amber-500/30 via-orange-500/20 to-red-500/30",
+    iconColor: "text-amber-300",
+    level: 86,
   },
   {
     title: "Operating Systems",
     icon: Wrench,
     skills: ["Windows", "Linux"],
-    color: "text-purple-400",
+    tone: "from-slate-400/30 via-zinc-400/20 to-neutral-400/30",
+    iconColor: "text-slate-300",
+    level: 80,
   },
   {
     title: "Areas of Interest",
     icon: Globe,
     skills: ["Cloud Computing", "Generative AI", "Frontend Development"],
-    color: "text-teal-400",
+    tone: "from-teal-500/30 via-cyan-500/20 to-sky-500/30",
+    iconColor: "text-teal-300",
+    level: 88,
   },
   {
     title: "Interpersonal Skills",
     icon: Wrench,
     skills: ["Leadership", "Adaptability", "Time Management", "Collaboration"],
-    color: "text-pink-400",
+    tone: "from-rose-500/30 via-pink-500/20 to-fuchsia-500/30",
+    iconColor: "text-rose-300",
+    level: 84,
   },
 ]
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20 px-4 bg-secondary/30">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="skills"
+      className="py-20 px-4 bg-[radial-gradient(circle_at_top_right,rgba(240,74,0,0.14),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(34,197,94,0.12),transparent_40%)]"
+    >
+      <div className="max-w-6xl mx-auto relative">
         <div className="text-center mb-16">
+          <p className="text-xs uppercase tracking-[0.35em] text-primary/90 mb-3">Capability Matrix</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Technical Skills</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive toolkit spanning cloud technologies, modern web development, and AI integration.
+            A high-energy skill map spanning cloud, modern web engineering, databases, and collaborative execution.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category) => {
+          {skillCategories.map((category, index) => {
             const Icon = category.icon
             return (
               <Card
                 key={category.title}
-                className="bg-card border-border hover:border-primary/50 transition-all duration-300"
+                className="group relative overflow-hidden border-border/70 bg-card/80 backdrop-blur-sm hover:border-primary/50 hover:-translate-y-1 transition-all duration-300"
+                style={{ animationDelay: `${index * 90}ms` }}
               >
-                <CardHeader className="pb-3">
-                  <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg bg-secondary ${category.color}`}>
-                      <Icon className="w-5 h-5" />
+                <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${category.tone}`} />
+                <div className={`absolute -top-16 -right-16 w-36 h-36 rounded-full bg-gradient-to-br ${category.tone} blur-2xl opacity-40 group-hover:opacity-70 transition-opacity`} />
+
+                <CardHeader className="pb-4 relative">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className={`p-2.5 rounded-xl bg-secondary/70 border border-border/60 ${category.iconColor}`}>
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <CardTitle className="text-lg text-foreground leading-tight">{category.title}</CardTitle>
                     </div>
-                    <CardTitle className="text-lg text-foreground">{category.title}</CardTitle>
+                    <span className="text-xs font-semibold text-primary/90 bg-primary/10 border border-primary/20 px-2 py-1 rounded-full">
+                      {category.level}%
+                    </span>
+                  </div>
+
+                  <div className="mt-4">
+                    <div className="h-2 w-full rounded-full bg-secondary/70 overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-primary via-orange-400 to-amber-300"
+                        style={{ width: `${category.level}%` }}
+                      />
+                    </div>
                   </div>
                 </CardHeader>
+
                 <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
+                  <div className="flex flex-wrap gap-2.5">
+                    {category.skills.map((skill, skillIndex) => (
                       <span
                         key={skill}
-                        className="px-3 py-1.5 text-sm bg-secondary text-secondary-foreground rounded-full hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
+                        className="px-3 py-1.5 text-sm bg-secondary/75 text-secondary-foreground rounded-full border border-border/60 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors cursor-default"
                       >
+                        <span className="text-primary/70 mr-1.5">{String(skillIndex + 1).padStart(2, "0")}</span>
                         {skill}
                       </span>
                     ))}

@@ -47,7 +47,7 @@ export function HeroSection() {
             Shiva Teja Nune Puttaparthi
           </h1>
           <p className="text-xl md:text-2xl text-primary font-medium mb-4">
-            Cloud Engineer & Software Developer
+            Aspiring Engineer
           </p>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
             Aspiring software engineer with expertise in cloud technologies, generative AI, and frontend development.

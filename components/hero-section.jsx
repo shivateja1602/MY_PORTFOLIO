@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const profileImageSrc = `${import.meta.env.BASE_URL}images/profile.png`
+  const profileImageSrc = `${import.meta.env.BASE_URL}images/mypic.png`
 
   useEffect(() => {
     setIsVisible(true)

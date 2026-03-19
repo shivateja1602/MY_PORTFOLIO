@@ -10,7 +10,6 @@ const skillCategories = [
     skills: ["Python", "Java", "JavaScript"],
     tone: "from-sky-500/30 via-blue-500/20 to-indigo-500/30",
     iconColor: "text-sky-300",
-    level: 90,
   },
   {
     title: "Web Technologies",
@@ -18,7 +17,6 @@ const skillCategories = [
     skills: ["React", "HTML", "CSS", "Tailwind CSS", "WordPress"],
     tone: "from-cyan-500/30 via-teal-500/20 to-emerald-500/30",
     iconColor: "text-cyan-300",
-    level: 92,
   },
   {
     title: "Databases",
@@ -26,7 +24,6 @@ const skillCategories = [
     skills: ["MySQL", "MongoDB"],
     tone: "from-emerald-500/30 via-green-500/20 to-lime-500/30",
     iconColor: "text-emerald-300",
-    level: 82,
   },
   {
     title: "Cloud & AI",
@@ -34,7 +31,6 @@ const skillCategories = [
     skills: ["AWS Cloud Fundamentals", "Generative AI APIs"],
     tone: "from-amber-500/30 via-orange-500/20 to-red-500/30",
     iconColor: "text-amber-300",
-    level: 86,
   },
   {
     title: "Operating Systems",
@@ -42,7 +38,6 @@ const skillCategories = [
     skills: ["Windows", "Linux"],
     tone: "from-slate-400/30 via-zinc-400/20 to-neutral-400/30",
     iconColor: "text-slate-300",
-    level: 80,
   },
   {
     title: "Areas of Interest",
@@ -50,7 +45,6 @@ const skillCategories = [
     skills: ["Cloud Computing", "Generative AI", "Frontend Development"],
     tone: "from-teal-500/30 via-cyan-500/20 to-sky-500/30",
     iconColor: "text-teal-300",
-    level: 88,
   },
   {
     title: "Interpersonal Skills",
@@ -58,7 +52,6 @@ const skillCategories = [
     skills: ["Leadership", "Adaptability", "Time Management", "Collaboration"],
     tone: "from-rose-500/30 via-pink-500/20 to-fuchsia-500/30",
     iconColor: "text-rose-300",
-    level: 84,
   },
 ]
 
@@ -90,24 +83,12 @@ export function SkillsSection() {
                 <div className={`absolute -top-16 -right-16 w-36 h-36 rounded-full bg-gradient-to-br ${category.tone} blur-2xl opacity-40 group-hover:opacity-70 transition-opacity`} />
 
                 <CardHeader className="pb-4 relative">
-                  <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start gap-3">
                     <div className="flex items-center gap-3">
                       <div className={`p-2.5 rounded-xl bg-secondary/70 border border-border/60 ${category.iconColor}`}>
                         <Icon className="w-5 h-5" />
                       </div>
                       <CardTitle className="text-lg text-foreground leading-tight">{category.title}</CardTitle>
-                    </div>
-                    <span className="text-xs font-semibold text-primary/90 bg-primary/10 border border-primary/20 px-2 py-1 rounded-full">
-                      {category.level}%
-                    </span>
-                  </div>
-
-                  <div className="mt-4">
-                    <div className="h-2 w-full rounded-full bg-secondary/70 overflow-hidden">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-primary via-orange-400 to-amber-300"
-                        style={{ width: `${category.level}%` }}
-                      />
                     </div>
                   </div>
                 </CardHeader>

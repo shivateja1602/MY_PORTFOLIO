@@ -1,11 +1,28 @@
 "use client"
 
-import { ExternalLink, Github, Bug, Users, CheckSquare, Calendar } from "lucide-react"
+import { ExternalLink, Github, Bug, Users, CheckSquare, Calendar, DollarSign } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
 const projects = [
+  {
+    title: "Money Manager",
+    description:
+      "A full-stack monorepo financial management application built with React 19 and Vite on the frontend, and Node/Express on the backend. Features account management, transaction tracking, and offline mode support with seamless API integration.",
+    icon: DollarSign,
+    technologies: ["React 19", "Vite", "Tailwind CSS", "Node.js", "Express"],
+    highlights: [
+      "Full-stack monorepo architecture",
+      "Account and transaction management",
+      "Offline mode with local fallback",
+      "RESTful API with CORS",
+      "Deployed on Vercel",
+    ],
+    github: "https://github.com/shivateja1602/Money_manager",
+    duration: "December 2025 - February 2026",
+    color: "from-purple-500/20 to-pink-500/20",
+  },
   {
     title: "BugSense",
     description:

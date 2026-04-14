@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const profileImageSrc = `${import.meta.env.BASE_URL}images/mypic.png`
+  const [currentImageSrc, setCurrentImageSrc] = useState(`${import.meta.env.BASE_URL}images/mypic.png`)
 
   useEffect(() => {
     setIsVisible(true)
@@ -30,12 +30,22 @@ export function HeroSection() {
         <div className="relative">
           <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20">
             <img
-              src={profileImageSrc}
+              src={currentImageSrc}
               alt="Shiva Teja Nune Puttaparthi"
               className="object-cover object-top w-full h-full"
               width={208}
               height={208}
               loading="eager"
+              onError={(event) => {
+                const attemptedSrc = event.currentTarget.getAttribute("src") || ""
+                if (attemptedSrc.includes(`${import.meta.env.BASE_URL}images/mypic.png`)) {
+                  setCurrentImageSrc("images/mypic.png")
+                  return
+                }
+                if (attemptedSrc.includes("images/mypic.png") && !attemptedSrc.includes("/images/mypic.png")) {
+                  setCurrentImageSrc("/images/mypic.png")
+                }
+              }}
             />
           </div>
           <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-4 border-background" />

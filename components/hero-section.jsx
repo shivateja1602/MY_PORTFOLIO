@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [currentImageSrc, setCurrentImageSrc] = useState(`${import.meta.env.BASE_URL}images/mypic.png`)
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
@@ -28,14 +29,22 @@ export function HeroSection() {
       >
         {/* Profile Image */}
         <div className="relative">
-          <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20">
+          {/* Background gradient ring */}
+          <div className="absolute inset-0 w-40 h-40 md:w-52 md:h-52 rounded-full bg-gradient-to-br from-primary/30 via-primary/10 to-transparent blur-xl opacity-70" />
+          
+          <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-transparent bg-gradient-to-br from-primary/40 to-primary/10 shadow-2xl shadow-primary/30 p-1">
+            {/* Inner container with background color */}
+            <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900">
             <img
               src={currentImageSrc}
               alt="Shiva Teja Nune Puttaparthi"
-              className="object-cover object-top w-full h-full"
+              className={`object-cover object-top w-full h-full transition-opacity duration-300 ${
+                imageLoaded ? "opacity-100" : "opacity-75"
+              }`}
               width={208}
               height={208}
               loading="eager"
+              onLoad={() => setImageLoaded(true)}
               onError={(event) => {
                 const attemptedSrc = event.currentTarget.getAttribute("src") || ""
                 if (attemptedSrc.includes(`${import.meta.env.BASE_URL}images/mypic.png`)) {
@@ -47,6 +56,7 @@ export function HeroSection() {
                 }
               }}
             />
+            </div>
           </div>
           <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-4 border-background" />
         </div>

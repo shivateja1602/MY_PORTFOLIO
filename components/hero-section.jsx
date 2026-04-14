@@ -28,34 +28,35 @@ export function HeroSection() {
         }`}
       >
         {/* Profile Image */}
-        <div className="relative">
-          {/* Background gradient ring */}
-          <div className="absolute inset-0 w-40 h-40 md:w-52 md:h-52 rounded-full bg-gradient-to-br from-primary/30 via-primary/10 to-transparent blur-xl opacity-70" />
-          
-          <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-transparent bg-gradient-to-br from-primary/40 to-primary/10 shadow-2xl shadow-primary/30 p-1">
-            {/* Inner container with background color */}
-            <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900">
-            <img
-              src={currentImageSrc}
-              alt="Shiva Teja Nune Puttaparthi"
-              className={`object-cover object-top w-full h-full transition-opacity duration-300 ${
-                imageLoaded ? "opacity-100" : "opacity-75"
-              }`}
-              width={208}
-              height={208}
-              loading="eager"
-              onLoad={() => setImageLoaded(true)}
-              onError={(event) => {
-                const attemptedSrc = event.currentTarget.getAttribute("src") || ""
-                if (attemptedSrc.includes(`${import.meta.env.BASE_URL}images/mypic.png`)) {
-                  setCurrentImageSrc("images/mypic.png")
-                  return
-                }
-                if (attemptedSrc.includes("images/mypic.png") && !attemptedSrc.includes("/images/mypic.png")) {
-                  setCurrentImageSrc("/images/mypic.png")
-                }
-              }}
-            />
+        <div className="relative w-40 h-40 md:w-52 md:h-52">
+          <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-primary/35 via-primary/10 to-transparent blur-lg" />
+
+          <div className="relative h-full w-full rounded-full p-1 bg-gradient-to-br from-primary/45 to-primary/15 shadow-2xl shadow-primary/30">
+            <div className="relative h-full w-full rounded-full overflow-hidden bg-muted">
+              <img
+                src={currentImageSrc}
+                alt="Shiva Teja Nune Puttaparthi"
+                className={`h-full w-full object-cover object-center transition-opacity duration-500 ${
+                  imageLoaded ? "opacity-100" : "opacity-0"
+                }`}
+                width={208}
+                height={208}
+                loading="eager"
+                onLoad={() => setImageLoaded(true)}
+                onError={(event) => {
+                  const attemptedSrc = event.currentTarget.getAttribute("src") || ""
+                  if (attemptedSrc.includes(`${import.meta.env.BASE_URL}images/mypic.png`)) {
+                    setImageLoaded(false)
+                    setCurrentImageSrc("images/mypic.png")
+                    return
+                  }
+                  if (attemptedSrc.includes("images/mypic.png") && !attemptedSrc.includes("/images/mypic.png")) {
+                    setImageLoaded(false)
+                    setCurrentImageSrc("/images/mypic.png")
+                  }
+                }}
+              />
+              {!imageLoaded && <div className="absolute inset-0 animate-pulse bg-muted-foreground/20" />}
             </div>
           </div>
           <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-4 border-background" />

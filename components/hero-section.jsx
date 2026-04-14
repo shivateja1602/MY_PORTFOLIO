@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react"
 import { Github, Linkedin, Mail, MessageCircle, MapPin, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import profileImage from "@/public/images/mypic.png"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const profileImageSrc = `${import.meta.env.BASE_URL}images/mypic.png`
 
   useEffect(() => {
     setIsVisible(true)
@@ -30,7 +30,7 @@ export function HeroSection() {
         <div className="relative">
           <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20">
             <img
-              src={profileImageSrc}
+              src={profileImage}
               alt="Shiva Teja Nune Puttaparthi"
               className="object-cover object-top w-full h-full"
               width={208}

@@ -293,30 +293,10 @@
             overflow: hidden;
         }
 
-        .about-avatar::before {
-            content: 'ST';
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 6rem;
-            font-weight: 700;
-            color: var(--bg-primary);
-            mix-blend-mode: overlay;
-        }
-
-        .about-avatar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: conic-gradient(from 0deg, var(--accent-primary), var(--accent-secondary), var(--accent-primary));
-            opacity: 0.1;
-            animation: rotate 6s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .about-avatar img {
+            position: relative;
+            z-index: 1;
+            display: block;
         }
 
         .about-content h2 {

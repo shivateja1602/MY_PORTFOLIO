@@ -1,6 +1,6 @@
 "use client"
 
-import { ExternalLink, Github, Bug, Users, CheckSquare, Calendar, DollarSign } from "lucide-react"
+import { ExternalLink, Github, Bug, Users, CheckSquare, Calendar, DollarSign, Activity } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -54,6 +54,22 @@ const projects = [
     github: "https://github.com/shivateja1602",
     duration: "June 2025 - August 2025",
     color: "from-blue-500/20 to-cyan-500/20",
+  },
+  {
+    title: "Quantum Medical Denoising",
+    description:
+      "A Python-based quantum-inspired medical image denoising pipeline with a minimal public release for reproducible experiments on X-ray images and report generation.",
+    icon: Activity,
+    technologies: ["Python", "Image Processing", "Medical Imaging", "Research"],
+    highlights: [
+      "Quantum-inspired denoising workflow",
+      "Minimal public-safe release",
+      "Single-command pipeline execution",
+      "Automated markdown report generation",
+    ],
+    github: "https://github.com/shivateja1602/quantum-medical-denoising-minimal",
+    duration: "April 2026 - Present",
+    color: "from-fuchsia-500/20 to-violet-500/20",
   },
   {
     title: "Task Management System",

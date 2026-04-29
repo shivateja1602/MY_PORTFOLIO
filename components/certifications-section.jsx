@@ -6,6 +6,13 @@ import { Badge } from "@/components/ui/badge"
 
 const certifications = [
   {
+    title: "AI for All: From Basics to GenAI Practice",
+    issuer: "NVIDIA",
+    date: "April 22, 2026",
+    type: "certification",
+    logo: "/images/nvidia-logo.svg",
+  },
+  {
     title: "Python Fundamentals for Beginners",
     issuer: "Great Learning",
     date: "October 2023",
@@ -78,9 +85,14 @@ export function CertificationsSection() {
                 <Card key={cert.title} className="bg-card border-border hover:border-primary/50 transition-all">
                   <CardContent className="p-4">
                     <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h4 className="font-medium text-foreground">{cert.title}</h4>
-                        <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                      <div className="flex items-start gap-3 flex-1">
+                        {cert.logo && (
+                          <img src={cert.logo} alt={cert.issuer} className="w-8 h-8 object-contain shrink-0 mt-1" />
+                        )}
+                        <div>
+                          <h4 className="font-medium text-foreground">{cert.title}</h4>
+                          <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                        </div>
                       </div>
                       <Badge variant="secondary" className="bg-primary/10 text-primary shrink-0">
                         {cert.date}

@@ -87,7 +87,12 @@ export function CertificationsSection() {
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-start gap-3 flex-1">
                         {cert.logo && (
-                          <img src={cert.logo} alt={cert.issuer} className="w-8 h-8 object-contain shrink-0 mt-1" />
+                          <img
+                            src={cert.logo}
+                            alt={cert.issuer}
+                            className="w-8 h-8 object-contain shrink-0 mt-1"
+                            loading="lazy"
+                          />
                         )}
                         <div>
                           <h4 className="font-medium text-foreground">{cert.title}</h4>

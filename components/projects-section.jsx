@@ -51,7 +51,8 @@ const projects = [
       "Clear feature highlights",
       "MERN stack showcase",
     ],
-    github: "https://github.com/shivateja1602",
+    href: "mailto:shivateja1602@gmail.com?subject=B2B%20CRM%20Lite%20Project%20Demo",
+    action: "mail",
     duration: "June 2025 - August 2025",
     color: "from-blue-500/20 to-cyan-500/20",
   },
@@ -83,7 +84,8 @@ const projects = [
       "Add, remove, list tasks",
       "Persistent data storage",
     ],
-    github: "https://github.com/shivateja1602",
+    href: "mailto:shivateja1602@gmail.com?subject=Task%20Management%20System%20Project%20Demo",
+    action: "mail",
     duration: "June 2024 - August 2024",
     color: "from-green-500/20 to-emerald-500/20",
   },
@@ -103,10 +105,14 @@ export function ProjectsSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => {
             const Icon = project.icon
+            const actionType = project.action ?? "github"
+            const actionHref = project.href ?? project.github
+            const actionLabel = actionType === "mail" ? "Contact via Mail" : "View Code"
+
             return (
               <Card
                 key={project.title}
-                className="bg-card border-border hover:border-primary/50 transition-all duration-300 group overflow-hidden"
+                className="bg-card border-border hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group overflow-hidden"
               >
                 <div className={`h-2 bg-gradient-to-r ${project.color}`} />
                 <CardHeader>
@@ -147,12 +153,23 @@ export function ProjectsSection() {
                       className="flex-1 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary"
                       asChild
                     >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
+                      <a
+                        href={actionHref}
+                        target={actionType === "github" ? "_blank" : undefined}
+                        rel={actionType === "github" ? "noopener noreferrer" : undefined}
+                      >
+                        {actionType === "github" ? (
+                          <Github className="w-4 h-4 mr-2" />
+                        ) : (
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                        )}
+                        {actionLabel}
                       </a>
                     </Button>
                   </div>
+                  {actionType === "mail" && (
+                    <p className="text-xs text-muted-foreground">Repository is private/unavailable. Reach out for a demo.</p>
+                  )}
                 </CardContent>
               </Card>
             )

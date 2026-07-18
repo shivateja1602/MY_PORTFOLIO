@@ -4,7 +4,7 @@ import { Briefcase, GraduationCap, Calendar } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-const experiences = [
+const timelineEntries = [
   {
     type: "work",
     title: "MERN Developer Intern",
@@ -23,7 +23,7 @@ const experiences = [
     organization: "Madanapalle Institute of Technology & Science",
     location: "Madanapalle, Andhra Pradesh",
     duration: "2022 - May 2026",
-    description: ["CGPA: 8.46/10", "Relevant Coursework: Data Structures, Cloud Computing, Web Development"],
+    description: ["CGPA: 8.57/10", "Relevant Coursework: Data Structures, AWS Cloud, Web Development"],
   },
   {
     type: "education",
@@ -50,16 +50,25 @@ export function ExperienceSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Experience & Education</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            My professional journey and academic background in technology and software development.
+            Fresher profile with a strong academic foundation in software engineering and modern web technologies.
           </p>
         </div>
+
+        <Card className="mb-8 bg-card border-border/80">
+          <CardContent className="p-5">
+            <p className="text-sm md:text-base text-foreground">
+              I am currently seeking <span className="text-primary font-semibold">fresher opportunities</span> and open
+              to contributing across frontend, cloud, and AI-driven product teams.
+            </p>
+          </CardContent>
+        </Card>
 
         <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-border" />
 
           <div className="space-y-8">
-            {experiences.map((exp, index) => {
+            {timelineEntries.map((exp, index) => {
               const isLeft = index % 2 === 0
               const Icon = exp.type === "work" ? Briefcase : GraduationCap
 

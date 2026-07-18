@@ -16,18 +16,32 @@ describe("Portfolio App", () => {
 
     const profileImage = screen.getByAltText(/shiva teja nune puttaparthi/i)
     expect(profileImage).toBeInTheDocument()
-    expect(profileImage).toHaveAttribute("src", expect.stringContaining("images/mypic.png"))
+    expect(profileImage).toHaveAttribute("src", expect.stringContaining("images/mypic"))
   })
 
   it("includes Money Manager project repository link", () => {
     render(<App />)
 
     const moneyManagerRepo = screen
-      .getAllByRole("link", { name: /code/i })
+      .getAllByRole("link")
       .find((link) => link.getAttribute("href") === "https://github.com/shivateja1602/Money_manager")
 
     expect(moneyManagerRepo).toBeInTheDocument()
     expect(moneyManagerRepo).toHaveAttribute("href", "https://github.com/shivateja1602/Money_manager")
+  })
+
+  it("uses mail fallback for projects without public repository links", () => {
+    render(<App />)
+
+    const fallbackContactLink = screen
+      .getAllByRole("link")
+      .find((link) =>
+        link
+          .getAttribute("href")
+          ?.startsWith("mailto:shivateja1602@gmail.com?subject=B2B%20CRM%20Lite%20Project%20Demo"),
+      )
+
+    expect(fallbackContactLink).toBeInTheDocument()
   })
 
   it("provides contact CTA mailto link", () => {

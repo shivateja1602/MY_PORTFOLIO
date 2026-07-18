@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const [currentImageSrc, setCurrentImageSrc] = useState(`${import.meta.env.BASE_URL}images/mypic.png`)
+  const [currentImageSrc, setCurrentImageSrc] = useState(`${import.meta.env.BASE_URL}images/mypic.webp`)
   const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(() => {
@@ -16,6 +16,10 @@ export function HeroSection() {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
+      if (window.__lenis) {
+        window.__lenis.scrollTo(element)
+        return
+      }
       element.scrollIntoView({ behavior: "smooth" })
     }
   }
@@ -45,6 +49,16 @@ export function HeroSection() {
                 onLoad={() => setImageLoaded(true)}
                 onError={(event) => {
                   const attemptedSrc = event.currentTarget.getAttribute("src") || ""
+                  if (attemptedSrc.includes("mypic.webp")) {
+                    setImageLoaded(false)
+                    setCurrentImageSrc(`${import.meta.env.BASE_URL}images/mypic-optimized.png`)
+                    return
+                  }
+                  if (attemptedSrc.includes("mypic-optimized.png")) {
+                    setImageLoaded(false)
+                    setCurrentImageSrc(`${import.meta.env.BASE_URL}images/mypic.png`)
+                    return
+                  }
                   if (attemptedSrc.includes(`${import.meta.env.BASE_URL}images/mypic.png`)) {
                     setImageLoaded(false)
                     setCurrentImageSrc("images/mypic.png")
@@ -64,15 +78,18 @@ export function HeroSection() {
 
         {/* Name and Title */}
         <div className="text-center">
+          <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/40 bg-primary/10 text-primary text-xs uppercase tracking-[0.2em] mb-4">
+            Fresher
+          </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 text-balance">
             Shiva Teja Nune Puttaparthi
           </h1>
           <p className="text-xl md:text-2xl text-primary font-medium mb-4">
-            Aspiring Software Engineer
+            Fresher Software Engineer
           </p>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
-            Aspiring software engineer with expertise in cloud technologies, generative AI, and frontend development.
-            Building real-world solutions with React, AWS, and modern web technologies.
+            Fresher software engineer focused on cloud technologies, generative AI, and frontend development. Building
+            real-world solutions with React, AWS, and modern web technologies.
           </p>
         </div>
 

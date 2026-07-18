@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const [currentImageSrc, setCurrentImageSrc] = useState(`${import.meta.env.BASE_URL}images/mypic.webp`)
+  const [currentImageSrc, setCurrentImageSrc] = useState(`${import.meta.env.BASE_URL}images/mypic.png`)
   const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export function HeroSection() {
         }`}
       >
         {/* Profile Image */}
-        <div className="relative w-40 h-40 md:w-52 md:h-52">
+        <div className="relative w-40 h-56 md:w-52 md:h-72">
           <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-primary/35 via-primary/10 to-transparent blur-lg" />
 
           <div className="relative h-full w-full rounded-3xl p-1 bg-gradient-to-br from-primary/45 to-primary/15 shadow-2xl shadow-primary/30">
@@ -40,7 +40,7 @@ export function HeroSection() {
               <img
                 src={currentImageSrc}
                 alt="Shiva Teja Nune Puttaparthi"
-                className={`h-full w-full object-cover object-center transition-opacity duration-500 ${
+                className={`h-full w-full object-cover object-top transition-opacity duration-500 ${
                   imageLoaded ? "opacity-100" : "opacity-0"
                 }`}
                 width={208}

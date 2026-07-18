@@ -76,7 +76,7 @@ export function SkillsSection() {
             return (
               <Card
                 key={category.title}
-                className="group relative overflow-hidden border-border/70 bg-card/40 backdrop-blur-md hover:border-primary/50 hover:-translate-y-1 transition-all duration-300"
+                className="group relative overflow-hidden border-white/10 bg-black/30 backdrop-blur-2xl hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.4)]"
                 style={{ animationDelay: `${index * 90}ms` }}
               >
                 <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${category.tone}`} />

@@ -23,9 +23,9 @@
         }
 
         :root {
-            --bg-primary: #020202;
-            --bg-secondary: #070707;
-            --bg-card: rgba(12, 12, 12, 0.35);
+            --bg-primary: #000000;
+            --bg-secondary: #030303;
+            --bg-card: rgba(5, 5, 5, 0.25);
             --accent-primary: #ff7a18;
             --accent-secondary: #ff3d2e;
             --accent-soft: #ffb168;
@@ -116,10 +116,10 @@
         }
 
         nav.scrolled {
-            background: rgba(14, 5, 5, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 12px 34px rgba(255, 61, 46, 0.18);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            box-shadow: 0 12px 34px rgba(255, 61, 46, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .nav-container {
@@ -550,10 +550,12 @@
             background: var(--bg-card);
             border: 1px solid var(--border-glow);
             border-radius: 0.75rem;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .project-card:hover {

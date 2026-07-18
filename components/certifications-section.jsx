@@ -82,7 +82,7 @@ export function CertificationsSection() {
             </h3>
             <div className="space-y-4">
               {certs.map((cert) => (
-                <Card key={cert.title} className="bg-card/40 backdrop-blur-md border-white/10 hover:border-primary/50 transition-all">
+                <Card key={cert.title} className="bg-black/30 backdrop-blur-2xl border-white/10 hover:border-primary/50 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
                   <CardContent className="p-4">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-start gap-3 flex-1">
@@ -118,7 +118,7 @@ export function CertificationsSection() {
             <div className="space-y-4">
               {badges.map((badge) => (
                 <a key={badge.title} href={badge.href} target="_blank" rel="noopener noreferrer" className="block">
-                  <Card className="bg-card/40 backdrop-blur-md border-white/10 hover:border-primary/50 transition-all">
+                  <Card className="bg-black/30 backdrop-blur-2xl border-white/10 hover:border-primary/50 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
                     <CardContent className="p-4">
                       <div className="flex items-start justify-between gap-4">
                         <div>

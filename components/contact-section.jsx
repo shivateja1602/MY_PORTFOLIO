@@ -58,7 +58,7 @@ export function ContactSection() {
             {contactInfo.map((item) => {
               const Icon = item.icon
               const content = (
-                <Card className="bg-card/40 backdrop-blur-md border-white/10 hover:border-primary/50 transition-all">
+                <Card className="bg-black/30 backdrop-blur-2xl border-white/10 hover:border-primary/50 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
                   <CardContent className="p-4 flex items-center gap-4">
                     <div className="p-2 rounded-lg bg-primary/10 text-primary">
                       <Icon className="w-5 h-5" />
@@ -88,7 +88,7 @@ export function ContactSection() {
               const Icon = social.icon
               return (
                 <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="block">
-                  <Card className="bg-card/40 backdrop-blur-md border-white/10 hover:border-primary/50 transition-all">
+                  <Card className="bg-black/30 backdrop-blur-2xl border-white/10 hover:border-primary/50 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
                     <CardContent className="p-4 flex items-center gap-4">
                       <div className="p-2 rounded-lg bg-primary/10 text-primary">
                         <Icon className="w-5 h-5" />

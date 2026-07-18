@@ -33,10 +33,10 @@ export function HeroSection() {
       >
         {/* Profile Image */}
         <div className="relative w-40 h-40 md:w-52 md:h-52">
-          <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-primary/35 via-primary/10 to-transparent blur-lg" />
+          <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-primary/35 via-primary/10 to-transparent blur-lg" />
 
-          <div className="relative h-full w-full rounded-full p-1 bg-gradient-to-br from-primary/45 to-primary/15 shadow-2xl shadow-primary/30">
-            <div className="relative h-full w-full rounded-full overflow-hidden bg-muted">
+          <div className="relative h-full w-full rounded-3xl p-1 bg-gradient-to-br from-primary/45 to-primary/15 shadow-2xl shadow-primary/30">
+            <div className="relative h-full w-full rounded-3xl overflow-hidden bg-muted">
               <img
                 src={currentImageSrc}
                 alt="Shiva Teja Nune Puttaparthi"

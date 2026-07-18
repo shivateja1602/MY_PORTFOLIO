@@ -42,9 +42,9 @@
         body {
             font-family: 'DM Sans', sans-serif;
             background:
-                radial-gradient(circle at 15% 10%, rgba(255, 122, 24, 0.12), transparent 35%),
-                radial-gradient(circle at 85% 80%, rgba(255, 61, 46, 0.1), transparent 40%),
-                linear-gradient(160deg, #010101 0%, #050505 45%, #090909 100%);
+                radial-gradient(circle at 15% 10%, rgba(255, 61, 46, 0.05), transparent 30%),
+                radial-gradient(circle at 85% 80%, rgba(255, 61, 46, 0.03), transparent 30%),
+                linear-gradient(160deg, #000000 0%, #020202 45%, #050505 100%);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
@@ -1122,9 +1122,152 @@
                 display: none;
             }
         }
+    
+        /* Custom Cursor Styles */
+        body { cursor: none; }
+        a, button, .project-card, .nav-links a { cursor: none; }
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--accent-primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+            mix-blend-mode: difference;
+        }
+        .custom-cursor.hover {
+            width: 64px;
+            height: 64px;
+            background-color: rgba(255, 61, 46, 0.2);
+        }
+        .custom-cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+    
+        /* Card Size Consistency Fixes */
+        .project-card, .skill-category, .cp-card, .stat, .contact-link {
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+        
+        .projects-grid, .skills-grid, .cp-grid, .about-stats {
+            align-items: stretch !important;
+        }
+
+        .contact-links {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+            gap: 1.5rem !important;
+        }
+
+        .skill-chips {
+            margin-top: auto !important;
+        }
+
     </style>
+
+    <!-- Premium Cards Styles -->
+    <style id="premium-cards">
+        .project-card, .skill-category, .timeline-content, .cp-card, .stat, .contact-link, .contact-form {
+            position: relative !important;
+            background: linear-gradient(145deg, rgba(20, 15, 15, 0.7) 0%, rgba(5, 2, 2, 0.9) 100%) !important;
+            border: 1px solid rgba(255, 122, 24, 0.15) !important;
+            border-radius: 16px !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+            box-shadow: 
+                0 15px 35px -10px rgba(0,0,0,0.8), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.05),
+                inset 0 0 20px rgba(255, 122, 24, 0.02) !important;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Glass Shine Effect on Hover */
+        .project-card::after, .skill-category::after, .timeline-content::after, .cp-card::after, .stat::after, .contact-link::after, .contact-form::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -150%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.04), transparent);
+            transform: skewX(-25deg);
+            transition: left 0.7s ease-in-out;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .project-card:hover::after, .skill-category:hover::after, .timeline-content:hover::after, .cp-card:hover::after, .stat:hover::after, .contact-link:hover::after, .contact-form:hover::after {
+            left: 200%;
+        }
+
+        .project-card:hover, .skill-category:hover, .timeline-content:hover, .cp-card:hover, .stat:hover, .contact-link:hover, .contact-form:hover {
+            border-color: rgba(255, 122, 24, 0.6) !important;
+            background: linear-gradient(145deg, rgba(30, 20, 15, 0.8) 0%, rgba(10, 4, 4, 0.95) 100%) !important;
+            box-shadow: 
+                0 25px 55px -15px rgba(255, 61, 46, 0.25), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                inset 0 0 30px rgba(255, 122, 24, 0.08) !important;
+            transform: translateY(-8px) scale(1.02) !important;
+        }
+        
+        /* Premium Tags */
+        .tech-tag, .tag {
+            background: linear-gradient(90deg, rgba(255, 61, 46, 0.1), rgba(255, 122, 24, 0.1)) !important;
+            border: 1px solid rgba(255, 122, 24, 0.3) !important;
+            color: #ffc4a3 !important;
+            box-shadow: 0 2px 10px rgba(255, 61, 46, 0.1) !important;
+            border-radius: 20px !important;
+            padding: 0.4rem 0.9rem !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .tech-tag:hover, .tag:hover {
+            background: linear-gradient(90deg, rgba(255, 61, 46, 0.2), rgba(255, 122, 24, 0.2)) !important;
+            border-color: rgba(255, 122, 24, 0.6) !important;
+            box-shadow: 0 4px 15px rgba(255, 61, 46, 0.2) !important;
+            transform: translateY(-2px);
+        }
+        
+        /* Buttons inside cards */
+        .project-links a, .btn-primary, .btn-secondary {
+            border-radius: 8px !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .project-links a:hover, .btn-primary:hover, .btn-secondary:hover {
+            box-shadow: 0 0 20px rgba(255, 122, 24, 0.4) !important;
+        }
+    </style>
+
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+    
+    <!-- Particles Background -->
+    <div id="tsparticles" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -1199,16 +1342,16 @@
             <h2 class="section-title">Skills</h2>
             <p class="section-subtitle">Core competencies spanning full-stack web development, cloud technologies, and problem-solving</p>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-category-title"><i class="fas fa-code"></i> Programming Languages</div>
+                <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-code"></i> Programming Languages</div>
                     <div class="skill-chips">
                         <span class="skill-chip">Python</span>
                         <span class="skill-chip">Java</span>
                         <span class="skill-chip">JavaScript</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-category-title"><i class="fas fa-globe"></i> Web Technologies</div>
+                <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-globe"></i> Web Technologies</div>
                     <div class="skill-chips">
                         <span class="skill-chip">React</span>
                         <span class="skill-chip">HTML</span>
@@ -1217,37 +1360,37 @@
                         <span class="skill-chip">WordPress</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-category-title"><i class="fas fa-database"></i> Databases</div>
+                <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-database"></i> Databases</div>
                     <div class="skill-chips">
                         <span class="skill-chip">MySQL</span>
                         <span class="skill-chip">MongoDB</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-category-title"><i class="fas fa-cloud"></i> Cloud & AI</div>
+                <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-cloud"></i> Cloud & AI</div>
                     <div class="skill-chips">
                         <span class="skill-chip">AWS Cloud Fundamentals</span>
                         <span class="skill-chip">Generative AI APIs</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-category-title"><i class="fas fa-tools"></i> Operating Systems</div>
+                <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-tools"></i> Operating Systems</div>
                     <div class="skill-chips">
                         <span class="skill-chip">Windows</span>
                         <span class="skill-chip">Linux</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-category-title"><i class="fas fa-star"></i> Areas of Interest</div>
+                <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-star"></i> Areas of Interest</div>
                     <div class="skill-chips">
                         <span class="skill-chip">Cloud Computing</span>
                         <span class="skill-chip">Generative AI</span>
                         <span class="skill-chip">Frontend Development</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-category-title"><i class="fas fa-users"></i> Interpersonal Skills</div>
+                <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-users"></i> Interpersonal Skills</div>
                     <div class="skill-chips">
                         <span class="skill-chip">Leadership</span>
                         <span class="skill-chip">Adaptability</span>
@@ -1265,7 +1408,7 @@
             <h2 class="section-title">Featured Projects</h2>
             <p class="section-subtitle">Showcase of recent work across AWS cloud, web development, and full-stack product building</p>
             <div class="projects-grid">
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                     <h3 class="project-title">Money Manager</h3>
                     <p class="project-description">
                         A full-stack monorepo financial management application built with React and Vite on the frontend, and Node/Express on the backend. Features account management, transaction tracking, and offline mode support.
@@ -1283,7 +1426,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                     <h3 class="project-title">BugSense</h3>
                     <p class="project-description">
                         A React-based bug detection tool that integrates the Gemini API for advanced code analysis. Provides AI-driven root cause explanations and generates precise code fixes for security flaws and performance issues.
@@ -1301,7 +1444,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                     <h3 class="project-title">B2B CRM Lite</h3>
                     <p class="project-description">
                         Designed and developed the landing page for a MERN-based CRM tool using React and Tailwind CSS. Focused on clean UI, responsive design, and clear feature highlights.
@@ -1319,7 +1462,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                     <h3 class="project-title">Quantum Medical Denoising</h3>
                     <p class="project-description">
                         A Python-based quantum-inspired medical image denoising pipeline with a minimal public release for reproducible X-ray experiments and report generation.
@@ -1348,7 +1491,7 @@
             <p class="section-subtitle">Fresher profile with internship experience and strong academic background</p>
             <div class="timeline">
                 <div class="timeline-item reveal">
-                    <div class="timeline-content">
+                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                         <div class="timeline-date">2024</div>
                         <div class="timeline-title">MERN Developer Intern</div>
                         <div class="timeline-org">InternPro (Remote)</div>
@@ -1361,9 +1504,9 @@
                 </div>
 
                 <div class="timeline-item reveal">
-                    <div class="timeline-content">
+                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                         <div class="timeline-date">2022 - May 2026</div>
-                        <div class="timeline-title">B.Tech in Computer Science & Technology (IV-I)</div>
+                        <div class="timeline-title">B.Tech in Computer Science & Technology</div>
                         <div class="timeline-org">Madanapalle Institute of Technology & Science</div>
                         <div class="timeline-desc">
                             • CGPA: 8.57/10<br>
@@ -1373,7 +1516,7 @@
                 </div>
 
                 <div class="timeline-item reveal">
-                    <div class="timeline-content">
+                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                         <div class="timeline-date">April 2022</div>
                         <div class="timeline-title">Intermediate (MPC)</div>
                         <div class="timeline-org">Sri Masters Junior College</div>
@@ -1385,7 +1528,7 @@
                 </div>
 
                 <div class="timeline-item reveal">
-                    <div class="timeline-content">
+                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                         <div class="timeline-date">April 2020</div>
                         <div class="timeline-title">Secondary Education (SSC)</div>
                         <div class="timeline-org">ZPHS Medapuram</div>
@@ -1405,7 +1548,7 @@
             <h2 class="section-title">Certifications & Badges</h2>
             <p class="section-subtitle">Industry-recognized credentials in cloud and AI technologies</p>
             <div class="cp-grid">
-                <div class="cp-card reveal">
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
                     <div class="cp-icon">
                         <img src="images/nvidia-logo.svg" alt="NVIDIA logo" class="cp-icon-image">
                     </div>
@@ -1414,49 +1557,49 @@
                     <div class="cp-rating">April 22, 2026</div>
                 </div>
 
-                <div class="cp-card reveal">
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
                     <div class="cp-icon"><i class="fas fa-certificate"></i></div>
                     <div class="cp-platform">Python Fundamentals for Beginners</div>
                     <div class="cp-handle">Great Learning</div>
                     <div class="cp-rating">October 2023</div>
                 </div>
 
-                <div class="cp-card reveal">
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
                     <div class="cp-icon"><i class="fas fa-award"></i></div>
                     <div class="cp-platform">Introduction to Jira</div>
                     <div class="cp-handle">Simplilearn</div>
                     <div class="cp-rating">July 2025</div>
                 </div>
 
-                <div class="cp-card reveal">
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
                     <div class="cp-icon"><i class="fas fa-brain"></i></div>
                     <div class="cp-platform">Introduction to Generative AI using AWS</div>
                     <div class="cp-handle">Udacity</div>
                     <div class="cp-rating">July 2025</div>
                 </div>
 
-                <div class="cp-card reveal">
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
                     <div class="cp-icon"><i class="fab fa-aws"></i></div>
                     <div class="cp-platform">AWS Cloud Practitioner Essentials</div>
                     <div class="cp-handle">AWS Skillbuilder</div>
                     <div class="cp-rating">September 2025</div>
                 </div>
 
-                <div class="cp-card reveal">
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
                     <div class="cp-icon"><i class="fas fa-cloud"></i></div>
                     <div class="cp-platform">Prompt Design in Vertex AI Skill Badge</div>
                     <div class="cp-handle">Google Cloud</div>
                     <div class="cp-rating">September 2024</div>
                 </div>
 
-                <div class="cp-card reveal">
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
                     <div class="cp-icon"><i class="fab fa-aws"></i></div>
                     <div class="cp-platform">AWS Educate ML Foundations</div>
                     <div class="cp-handle">AWS Educate</div>
                     <div class="cp-rating">July 2025</div>
                 </div>
 
-                <div class="cp-card reveal">
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
                     <div class="cp-icon"><i class="fab fa-aws"></i></div>
                     <div class="cp-platform">AWS Academy Cloud Foundations</div>
                     <div class="cp-handle">AWS Academy</div>
@@ -1700,5 +1843,77 @@
             const y = e.clientY;
         });
     </script>
+
+    <!-- AOS CSS -->
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    
+    <script>
+        // Initialize AOS
+        // Initialize Particles
+        tsParticles.load("tsparticles", {
+            background: { color: { value: "transparent" } },
+            fpsLimit: 60,
+            interactivity: {
+                events: {
+                    onHover: { enable: true, mode: "grab" },
+                },
+                modes: {
+                    grab: { distance: 140, links: { opacity: 0.5 } }
+                }
+            },
+            particles: {
+                color: { value: "#ff3d2e" },
+                links: { color: "#ff3d2e", distance: 150, enable: true, opacity: 0.1, width: 1 },
+                move: { enable: true, speed: 0.5 },
+                number: { value: 40 },
+                opacity: { value: 0.3 },
+                size: { value: { min: 1, max: 2 } }
+            }
+        });
+
+        // Custom Cursor Logic
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorDot = document.querySelector('.custom-cursor-dot');
+        
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Dot follows exactly
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+            
+            // Hover effect on interactables
+            const target = e.target;
+            if (target.closest('a') || target.closest('button') || target.closest('.project-card')) {
+                cursor.classList.add('hover');
+            } else {
+                cursor.classList.remove('hover');
+            }
+        });
+        
+        // Smooth spring animation for the outer ring
+        function animateCursor() {
+            let dx = mouseX - cursorX;
+            let dy = mouseY - cursorY;
+            
+            cursorX += dx * 0.2;
+            cursorY += dy * 0.2;
+            
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+    </script>
+
 </body>
 </html>

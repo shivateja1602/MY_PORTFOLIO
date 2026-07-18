@@ -112,7 +112,7 @@ export function ProjectsSection() {
             return (
               <Card
                 key={project.title}
-                className="bg-card border-border hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group overflow-hidden"
+                className="bg-card/40 backdrop-blur-md border-white/10 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group overflow-hidden"
               >
                 <div className={`h-2 bg-gradient-to-r ${project.color}`} />
                 <CardHeader>

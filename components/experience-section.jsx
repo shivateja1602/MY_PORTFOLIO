@@ -54,7 +54,7 @@ export function ExperienceSection() {
           </p>
         </div>
 
-        <Card className="mb-8 bg-card border-border/80">
+        <Card className="mb-8 bg-card/40 backdrop-blur-md border-white/10">
           <CardContent className="p-5">
             <p className="text-sm md:text-base text-foreground">
               I am currently seeking <span className="text-primary font-semibold">fresher opportunities</span> and open
@@ -82,7 +82,7 @@ export function ExperienceSection() {
 
                   {/* Content */}
                   <div className={`ml-8 md:ml-0 md:w-1/2 ${isLeft ? "md:pr-12" : "md:pl-12"}`}>
-                    <Card className="bg-card border-border hover:border-primary/50 transition-all">
+                    <Card className="bg-card/40 backdrop-blur-md border-white/10 hover:border-primary/50 transition-all">
                       <CardContent className="p-6">
                         <div className="flex items-center gap-2 mb-3">
                           <div className="p-1.5 rounded bg-primary/10 text-primary">

@@ -19,7 +19,7 @@ const timelineEntries = [
   },
   {
     type: "education",
-    title: "B.Tech in Computer Science & Technology (IV-I)",
+    title: "B.Tech in Computer Science & Technology",
     organization: "Madanapalle Institute of Technology & Science",
     location: "Madanapalle, Andhra Pradesh",
     duration: "2022 - May 2026",

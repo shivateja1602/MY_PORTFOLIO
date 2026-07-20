@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shiva Teja Nune Puttaparthi - AWS cloud and web developer portfolio showcasing modern full-stack projects.">
+    <meta name="description"
+        content="Shiva Teja Nune Puttaparthi - AWS cloud and web developer portfolio showcasing modern full-stack projects.">
     <meta name="og:title" content="Shiva Teja Nune Puttaparthi - AWS Cloud & Web Developer">
-    <meta name="og:description" content="AWS cloud and web developer focused on React, Node.js, cloud fundamentals, and real-world product development.">
+    <meta name="og:description"
+        content="AWS cloud and web developer focused on React, Node.js, cloud fundamentals, and real-world product development.">
     <meta name="og:image" content="https://shivateja1602.github.io/MY_PORTFOLIO/og-image.png">
     <meta name="og:url" content="https://shivateja1602.github.io/MY_PORTFOLIO/">
     <meta name="twitter:card" content="summary_large_image">
     <title>Shiva Teja - AWS Cloud & Web Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=League+Spartan:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         * {
             margin: 0;
@@ -25,32 +30,32 @@
         :root {
             --bg-primary: #000000;
             --bg-secondary: #030303;
-            --bg-card: rgba(5, 5, 5, 0.25);
+            --bg-card: rgba(255, 255, 255, 0.02);
             --accent-primary: #ff7a18;
             --accent-secondary: #ff3d2e;
             --accent-soft: #ffb168;
-            --text-primary: #f4e9e6;
-            --text-secondary: #b69792;
+            --text-primary: #ffffff;
+            --text-secondary: #f4e9e6;
             --border-glow: rgba(255, 122, 24, 0.28);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html {
+            overflow-x: hidden;
             scroll-behavior: auto;
         }
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background:
-                radial-gradient(circle at 15% 10%, rgba(255, 61, 46, 0.05), transparent 30%),
-                radial-gradient(circle at 85% 80%, rgba(255, 61, 46, 0.03), transparent 30%),
-                linear-gradient(160deg, #000000 0%, #020202 45%, #050505 100%);
+                body {
+            font-family: 'League Spartan', sans-serif;
+            background: #050200; /* Extremely deep warm black */
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
             isolation: isolate;
         }
+
+        
 
         html.lenis,
         html.lenis body {
@@ -75,30 +80,39 @@
             height: 100%;
             pointer-events: none;
             background:
-                repeating-linear-gradient(
-                    180deg,
+                repeating-linear-gradient(180deg,
                     rgba(255, 255, 255, 0.02) 0px,
                     rgba(255, 255, 255, 0.02) 1px,
                     transparent 2px,
-                    transparent 5px
-                ),
+                    transparent 5px),
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/><feColorMatrix in="noise" type="saturate" values="0.3"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
             opacity: 0.045;
             z-index: -1;
         }
 
-        body::after {
+                                        body::after {
             content: '';
             position: fixed;
-            inset: -20%;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
             pointer-events: none;
             background:
-                radial-gradient(circle at 20% 20%, rgba(255, 122, 24, 0.11), transparent 28%),
-                radial-gradient(circle at 80% 40%, rgba(255, 61, 46, 0.1), transparent 28%),
-                radial-gradient(circle at 50% 78%, rgba(255, 176, 104, 0.07), transparent 32%);
-            filter: blur(24px);
-            animation: plasmaFloat 20s linear infinite;
+                radial-gradient(circle at 50% 50%, rgba(255, 122, 24, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 61, 46, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(255, 177, 104, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 10% 30%, rgba(255, 61, 46, 0.1) 0%, transparent 40%);
+            filter: blur(80px);
+            mix-blend-mode: screen;
+            animation: rotateMesh 20s linear infinite;
             z-index: -2;
+        }
+
+        @keyframes rotateMesh {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
         }
 
         /* Navigation */
@@ -109,7 +123,7 @@
             right: 0;
             z-index: 1000;
             background: rgba(10, 4, 4, 0.78);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(30px);
             border-bottom: 1px solid var(--border-glow);
             padding: 1rem 2rem;
             transition: var(--transition);
@@ -117,8 +131,8 @@
 
         nav.scrolled {
             background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             box-shadow: 0 12px 34px rgba(255, 61, 46, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
         }
 
@@ -128,6 +142,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .logo {
@@ -225,7 +240,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 50%, rgba(255, 122, 24, 0.2) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(255, 61, 46, 0.2) 0%, transparent 50%);
             z-index: 0;
@@ -288,39 +303,88 @@
         }
 
         @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
         }
 
         @keyframes blink {
-            0%, 49% { border-color: var(--accent-primary); }
-            50%, 100% { border-color: transparent; }
+
+            0%,
+            49% {
+                border-color: var(--accent-primary);
+            }
+
+            50%,
+            100% {
+                border-color: transparent;
+            }
         }
 
         @keyframes gradientDrift {
-            0%, 100% { background-position: 0% 0%, 100% 100%, 50% 50%; }
-            50% { background-position: 100% 20%, 0% 80%, 50% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 0%, 100% 100%, 50% 50%;
+            }
+
+            50% {
+                background-position: 100% 20%, 0% 80%, 50% 50%;
+            }
         }
 
         @keyframes plasmaFloat {
-            0% { transform: translate3d(0, 0, 0) rotate(0deg); }
-            50% { transform: translate3d(2%, -2%, 0) rotate(2deg); }
-            100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+            0% {
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate3d(2%, -2%, 0) rotate(2deg);
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
         }
 
         @keyframes scanShift {
-            0% { background-position: 0 0, 0 0; }
-            100% { background-position: 0 16px, 0 0; }
+            0% {
+                background-position: 0 0, 0 0;
+            }
+
+            100% {
+                background-position: 0 16px, 0 0;
+            }
         }
 
         @keyframes separatorPulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.85; }
+
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 0.85;
+            }
         }
 
         @keyframes ringPulse {
-            0%, 100% { opacity: 0.45; transform: translate(-50%, -50%) scale(0.96); }
-            50% { opacity: 0.75; transform: translate(-50%, -50%) scale(1.04); }
+
+            0%,
+            100% {
+                opacity: 0.45;
+                transform: translate(-50%, -50%) scale(0.96);
+            }
+
+            50% {
+                opacity: 0.75;
+                transform: translate(-50%, -50%) scale(1.04);
+            }
         }
 
         .hero-cta {
@@ -430,10 +494,10 @@
         .stat {
             padding: 1.5rem;
             background: var(--bg-card);
-            border: 1px solid var(--border-glow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.5rem;
             text-align: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(30px);
             transition: var(--transition);
         }
 
@@ -487,9 +551,9 @@
         .skill-category {
             padding: 2rem;
             background: var(--bg-card);
-            border: 1px solid var(--border-glow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.75rem;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(30px);
             transition: var(--transition);
         }
 
@@ -548,14 +612,14 @@
         .project-card {
             padding: 2rem;
             background: var(--bg-card);
-            border: 1px solid var(--border-glow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.75rem;
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
         }
 
         .project-card:hover {
@@ -663,9 +727,9 @@
         .timeline-content {
             padding: 1.5rem;
             background: var(--bg-card);
-            border: 1px solid var(--border-glow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.5rem;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(30px);
             transition: var(--transition);
         }
 
@@ -717,14 +781,20 @@
         .cp-card {
             padding: 2rem;
             background: var(--bg-card);
-            border: 1px solid var(--border-glow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.75rem;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(30px);
             text-align: center;
             transition: var(--transition);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
         }
 
-        .cp-card:hover {
+        .project-card:hover, .cp-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(255, 122, 24, 0.4);
+            box-shadow: 0 40px 80px rgba(255, 122, 24, 0.15);
+        }
+.cp-card:hover {
             border-color: var(--accent-primary);
             box-shadow: 0 0 30px var(--border-glow);
             transform: translateY(-8px);
@@ -795,12 +865,12 @@
             gap: 0.5rem;
             padding: 1.5rem;
             background: var(--bg-card);
-            border: 1px solid var(--border-glow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.5rem;
             text-decoration: none;
             color: var(--text-secondary);
             transition: var(--transition);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(30px);
         }
 
         .contact-link:hover {
@@ -823,10 +893,10 @@
 
         .contact-form {
             background: var(--bg-card);
-            border: 1px solid var(--border-glow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.75rem;
             padding: 2rem;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(30px);
             margin-top: 2rem;
         }
 
@@ -853,7 +923,7 @@
             border: 1px solid rgba(255, 122, 24, 0.25);
             border-radius: 0.4rem;
             color: var(--text-primary);
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'League Spartan', sans-serif;
             transition: var(--transition);
         }
 
@@ -868,7 +938,7 @@
         .form-group textarea {
             resize: vertical;
             min-height: 120px;
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'League Spartan', sans-serif;
         }
 
         /* Footer */
@@ -1094,7 +1164,7 @@
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 1.5rem;
+                font-size: clamp(2rem, 8vw, 5rem);
             }
 
             .typewriter {
@@ -1119,13 +1189,26 @@
             }
 
             .nav-links {
-                display: none;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+                width: 100%;
             }
         }
-    
+
         /* Custom Cursor Styles */
-        body { cursor: none; }
-        a, button, .project-card, .nav-links a { cursor: none; }
+        body {
+            cursor: none;
+        }
+
+        a,
+        button,
+        .project-card,
+        .nav-links a {
+            cursor: none;
+        }
+
         .custom-cursor {
             position: fixed;
             top: 0;
@@ -1140,11 +1223,15 @@
             transition: width 0.2s, height 0.2s, background-color 0.2s;
             mix-blend-mode: difference;
         }
+
+        
         .custom-cursor.hover {
-            width: 64px;
-            height: 64px;
-            background-color: rgba(255, 61, 46, 0.2);
+            transform: translate(-50%, -50%) scale(2.5);
+            background: transparent;
+            border-color: var(--accent-primary);
         }
+
+
         .custom-cursor-dot {
             position: fixed;
             top: 0;
@@ -1157,15 +1244,22 @@
             z-index: 9999;
             transform: translate(-50%, -50%);
         }
-    
+
         /* Card Size Consistency Fixes */
-        .project-card, .skill-category, .cp-card, .stat, .contact-link {
+        .project-card,
+        .skill-category,
+        .cp-card,
+        .stat,
+        .contact-link {
             height: 100% !important;
             display: flex !important;
             flex-direction: column !important;
         }
-        
-        .projects-grid, .skills-grid, .cp-grid, .about-stats {
+
+        .projects-grid,
+        .skills-grid,
+        .cp-grid,
+        .about-stats {
             align-items: stretch !important;
         }
 
@@ -1178,20 +1272,42 @@
         .skill-chips {
             margin-top: auto !important;
         }
+    
+        .project-card:hover, .cp-card:hover, .timeline-content:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 122, 24, 0.4);
+            box-shadow: 0 40px 80px rgba(255, 122, 24, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .project-links a, .contact-link {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-links a:hover, .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 122, 24, 0.2);
+        }
 
     </style>
 
     <!-- Premium Cards Styles -->
     <style id="premium-cards">
-        .project-card, .skill-category, .timeline-content, .cp-card, .stat, .contact-link, .contact-form {
+        .project-card,
+        .skill-category,
+        .timeline-content,
+        .cp-card,
+        .stat,
+        .contact-link,
+        .contact-form {
             position: relative !important;
             background: linear-gradient(145deg, rgba(20, 15, 15, 0.7) 0%, rgba(5, 2, 2, 0.9) 100%) !important;
             border: 1px solid rgba(255, 122, 24, 0.15) !important;
             border-radius: 16px !important;
             backdrop-filter: blur(24px) !important;
             -webkit-backdrop-filter: blur(24px) !important;
-            box-shadow: 
-                0 15px 35px -10px rgba(0,0,0,0.8), 
+            box-shadow:
+                0 15px 35px -10px rgba(0, 0, 0, 0.8),
                 inset 0 1px 0 rgba(255, 255, 255, 0.05),
                 inset 0 0 20px rgba(255, 122, 24, 0.02) !important;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
@@ -1200,11 +1316,19 @@
         }
 
         /* Glass Shine Effect on Hover */
-        .project-card::after, .skill-category::after, .timeline-content::after, .cp-card::after, .stat::after, .contact-link::after, .contact-form::after {
+        .project-card::after,
+        .skill-category::after,
+        .timeline-content::after,
+        .cp-card::after,
+        .stat::after,
+        .contact-link::after,
+        .contact-form::after {
             content: '';
             position: absolute;
-            top: 0; left: -150%;
-            width: 50%; height: 100%;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
             background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.04), transparent);
             transform: skewX(-25deg);
             transition: left 0.7s ease-in-out;
@@ -1212,22 +1336,35 @@
             pointer-events: none;
         }
 
-        .project-card:hover::after, .skill-category:hover::after, .timeline-content:hover::after, .cp-card:hover::after, .stat:hover::after, .contact-link:hover::after, .contact-form:hover::after {
+        .project-card:hover::after,
+        .skill-category:hover::after,
+        .timeline-content:hover::after,
+        .cp-card:hover::after,
+        .stat:hover::after,
+        .contact-link:hover::after,
+        .contact-form:hover::after {
             left: 200%;
         }
 
-        .project-card:hover, .skill-category:hover, .timeline-content:hover, .cp-card:hover, .stat:hover, .contact-link:hover, .contact-form:hover {
+        .project-card:hover,
+        .skill-category:hover,
+        .timeline-content:hover,
+        .cp-card:hover,
+        .stat:hover,
+        .contact-link:hover,
+        .contact-form:hover {
             border-color: rgba(255, 122, 24, 0.6) !important;
             background: linear-gradient(145deg, rgba(30, 20, 15, 0.8) 0%, rgba(10, 4, 4, 0.95) 100%) !important;
-            box-shadow: 
-                0 25px 55px -15px rgba(255, 61, 46, 0.25), 
+            box-shadow:
+                0 25px 55px -15px rgba(255, 61, 46, 0.25),
                 inset 0 1px 0 rgba(255, 255, 255, 0.15),
                 inset 0 0 30px rgba(255, 122, 24, 0.08) !important;
             transform: translateY(-8px) scale(1.02) !important;
         }
-        
+
         /* Premium Tags */
-        .tech-tag, .tag {
+        .tech-tag,
+        .tag {
             background: linear-gradient(90deg, rgba(255, 61, 46, 0.1), rgba(255, 122, 24, 0.1)) !important;
             border: 1px solid rgba(255, 122, 24, 0.3) !important;
             color: #ffc4a3 !important;
@@ -1236,16 +1373,19 @@
             padding: 0.4rem 0.9rem !important;
             transition: all 0.3s ease !important;
         }
-        
-        .tech-tag:hover, .tag:hover {
+
+        .tech-tag:hover,
+        .tag:hover {
             background: linear-gradient(90deg, rgba(255, 61, 46, 0.2), rgba(255, 122, 24, 0.2)) !important;
             border-color: rgba(255, 122, 24, 0.6) !important;
             box-shadow: 0 4px 15px rgba(255, 61, 46, 0.2) !important;
             transform: translateY(-2px);
         }
-        
+
         /* Buttons inside cards */
-        .project-links a, .btn-primary, .btn-secondary {
+        .project-links a,
+        .btn-primary,
+        .btn-secondary {
             border-radius: 8px !important;
             letter-spacing: 1px !important;
             text-transform: uppercase !important;
@@ -1253,20 +1393,24 @@
             font-weight: 700 !important;
             transition: all 0.3s ease !important;
         }
-        
-        .project-links a:hover, .btn-primary:hover, .btn-secondary:hover {
+
+        .project-links a:hover,
+        .btn-primary:hover,
+        .btn-secondary:hover {
             box-shadow: 0 0 20px rgba(255, 122, 24, 0.4) !important;
         }
     </style>
 
 </head>
+
 <body>
     <!-- Custom Cursor -->
     <div class="custom-cursor"></div>
     <div class="custom-cursor-dot"></div>
-    
+
     <!-- Particles Background -->
-    <div id="tsparticles" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></div>
+    <div id="tsparticles"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></div>
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -1309,13 +1453,16 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about-container">
-                <div class="about-avatar" style="background: linear-gradient(135deg, rgba(255,122,24,0.26), rgba(255,61,46,0.18)); border: 2px solid rgba(255,122,24,0.35); box-shadow: 0 0 30px rgba(255,61,46,0.28); display: flex; align-items: center; justify-content: center;">
+                <div class="about-avatar"
+                    style="background: linear-gradient(135deg, rgba(255, 122, 24,0.26), rgba(255, 61, 46,0.18)); border: 2px solid rgba(255, 122, 24,0.35); box-shadow: 0 0 30px rgba(255, 61, 46,0.28); display: flex; align-items: center; justify-content: center;">
                     <img src="images/mypic.png" alt="Shiva Teja">
                 </div>
                 <div class="about-content">
                     <h2>About Me</h2>
                     <p class="about-bio">
-                        Fresher AWS cloud and web developer currently pursuing B.Tech in Computer Science. Skilled in building responsive web applications with React, Node.js, and modern frontend workflows, with strong interest in AWS cloud technologies and generative AI.
+                        Fresher AWS cloud and web developer currently pursuing B.Tech in Computer Science. Skilled in
+                        building responsive web applications with React, Node.js, and modern frontend workflows, with
+                        strong interest in AWS cloud technologies and generative AI.
                     </p>
                     <div class="about-stats">
                         <div class="stat">
@@ -1340,10 +1487,12 @@
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Skills</h2>
-            <p class="section-subtitle">Core competencies spanning full-stack web development, cloud technologies, and problem-solving</p>
+            <p class="section-subtitle">Core competencies spanning full-stack web development, cloud technologies, and
+                problem-solving</p>
             <div class="skills-grid">
                 <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
-                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-code"></i> Programming Languages</div>
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i
+                            class="fas fa-code"></i> Programming Languages</div>
                     <div class="skill-chips">
                         <span class="skill-chip">Python</span>
                         <span class="skill-chip">Java</span>
@@ -1351,7 +1500,8 @@
                     </div>
                 </div>
                 <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
-                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-globe"></i> Web Technologies</div>
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i
+                            class="fas fa-globe"></i> Web Technologies</div>
                     <div class="skill-chips">
                         <span class="skill-chip">React</span>
                         <span class="skill-chip">HTML</span>
@@ -1361,28 +1511,32 @@
                     </div>
                 </div>
                 <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
-                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-database"></i> Databases</div>
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i
+                            class="fas fa-database"></i> Databases</div>
                     <div class="skill-chips">
                         <span class="skill-chip">MySQL</span>
                         <span class="skill-chip">MongoDB</span>
                     </div>
                 </div>
                 <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
-                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-cloud"></i> Cloud & AI</div>
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i
+                            class="fas fa-cloud"></i> Cloud & AI</div>
                     <div class="skill-chips">
                         <span class="skill-chip">AWS Cloud Fundamentals</span>
                         <span class="skill-chip">Generative AI APIs</span>
                     </div>
                 </div>
                 <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
-                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-tools"></i> Operating Systems</div>
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i
+                            class="fas fa-tools"></i> Operating Systems</div>
                     <div class="skill-chips">
                         <span class="skill-chip">Windows</span>
                         <span class="skill-chip">Linux</span>
                     </div>
                 </div>
                 <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
-                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-star"></i> Areas of Interest</div>
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i
+                            class="fas fa-star"></i> Areas of Interest</div>
                     <div class="skill-chips">
                         <span class="skill-chip">Cloud Computing</span>
                         <span class="skill-chip">Generative AI</span>
@@ -1390,7 +1544,8 @@
                     </div>
                 </div>
                 <div class="skill-category" data-tilt data-tilt-max="5" data-tilt-speed="400">
-                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i class="fas fa-users"></i> Interpersonal Skills</div>
+                    <div class="skill-category-title" data-tilt data-tilt-max="5" data-tilt-speed="400"><i
+                            class="fas fa-users"></i> Interpersonal Skills</div>
                     <div class="skill-chips">
                         <span class="skill-chip">Leadership</span>
                         <span class="skill-chip">Adaptability</span>
@@ -1406,12 +1561,16 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Showcase of recent work across AWS cloud, web development, and full-stack product building</p>
+            <p class="section-subtitle">Showcase of recent work across AWS cloud, web development, and full-stack
+                product building</p>
             <div class="projects-grid">
-                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare
+                    data-tilt-max-glare="0.2">
                     <h3 class="project-title">Money Manager</h3>
                     <p class="project-description">
-                        A full-stack monorepo financial management application built with React and Vite on the frontend, and Node/Express on the backend. Features account management, transaction tracking, and offline mode support.
+                        A full-stack monorepo financial management application built with React and Vite on the
+                        frontend, and Node/Express on the backend. Features account management, transaction tracking,
+                        and offline mode support.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">React</span>
@@ -1426,10 +1585,13 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare
+                    data-tilt-max-glare="0.2">
                     <h3 class="project-title">BugSense</h3>
                     <p class="project-description">
-                        A React-based bug detection tool that integrates the Gemini API for advanced code analysis. Provides AI-driven root cause explanations and generates precise code fixes for security flaws and performance issues.
+                        A React-based bug detection tool that integrates the Gemini API for advanced code analysis.
+                        Provides AI-driven root cause explanations and generates precise code fixes for security flaws
+                        and performance issues.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">React</span>
@@ -1444,10 +1606,12 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare
+                    data-tilt-max-glare="0.2">
                     <h3 class="project-title">B2B CRM Lite</h3>
                     <p class="project-description">
-                        Designed and developed the landing page for a MERN-based CRM tool using React and Tailwind CSS. Focused on clean UI, responsive design, and clear feature highlights.
+                        Designed and developed the landing page for a MERN-based CRM tool using React and Tailwind CSS.
+                        Focused on clean UI, responsive design, and clear feature highlights.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">React</span>
@@ -1462,10 +1626,12 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                <div class="project-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare
+                    data-tilt-max-glare="0.2">
                     <h3 class="project-title">Quantum Medical Denoising</h3>
                     <p class="project-description">
-                        A Python-based quantum-inspired medical image denoising pipeline with a minimal public release for reproducible X-ray experiments and report generation.
+                        A Python-based quantum-inspired medical image denoising pipeline with a minimal public release
+                        for reproducible X-ray experiments and report generation.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
@@ -1491,7 +1657,8 @@
             <p class="section-subtitle">Fresher profile with internship experience and strong academic background</p>
             <div class="timeline">
                 <div class="timeline-item reveal">
-                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare
+                        data-tilt-max-glare="0.2">
                         <div class="timeline-date">2024</div>
                         <div class="timeline-title">MERN Developer Intern</div>
                         <div class="timeline-org">InternPro (Remote)</div>
@@ -1504,7 +1671,8 @@
                 </div>
 
                 <div class="timeline-item reveal">
-                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare
+                        data-tilt-max-glare="0.2">
                         <div class="timeline-date">2022 - May 2026</div>
                         <div class="timeline-title">B.Tech in Computer Science & Technology</div>
                         <div class="timeline-org">Madanapalle Institute of Technology & Science</div>
@@ -1516,7 +1684,8 @@
                 </div>
 
                 <div class="timeline-item reveal">
-                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare
+                        data-tilt-max-glare="0.2">
                         <div class="timeline-date">April 2022</div>
                         <div class="timeline-title">Intermediate (MPC)</div>
                         <div class="timeline-org">Sri Masters Junior College</div>
@@ -1528,7 +1697,8 @@
                 </div>
 
                 <div class="timeline-item reveal">
-                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                    <div class="timeline-content" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare
+                        data-tilt-max-glare="0.2">
                         <div class="timeline-date">April 2020</div>
                         <div class="timeline-title">Secondary Education (SSC)</div>
                         <div class="timeline-org">ZPHS Medapuram</div>
@@ -1565,10 +1735,17 @@
                 </div>
 
                 <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                    <div class="cp-icon"><i class="fab fa-aws"></i></div>
+                    <div class="cp-platform">AWS Cloud Technical Essentials</div>
+                    <div class="cp-handle">Coursera (authorized by AWS)</div>
+                    <div class="cp-rating">December 29, 2024</div>
+                </div>
+
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
                     <div class="cp-icon"><i class="fas fa-award"></i></div>
-                    <div class="cp-platform">Introduction to Jira</div>
-                    <div class="cp-handle">Simplilearn</div>
-                    <div class="cp-rating">July 2025</div>
+                    <div class="cp-platform">Get started with Jira</div>
+                    <div class="cp-handle">Coursera Project Network</div>
+                    <div class="cp-rating">September 26, 2025</div>
                 </div>
 
                 <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
@@ -1585,21 +1762,21 @@
                     <div class="cp-rating">September 2025</div>
                 </div>
 
-                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" onclick="window.open('https://www.credly.com/badges/65046b43-f547-4070-9127-110945e408b6', '_blank')" style="cursor: pointer;">
                     <div class="cp-icon"><i class="fas fa-cloud"></i></div>
                     <div class="cp-platform">Prompt Design in Vertex AI Skill Badge</div>
                     <div class="cp-handle">Google Cloud</div>
                     <div class="cp-rating">September 2024</div>
                 </div>
 
-                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" onclick="window.open('https://www.credly.com/badges/591758ed-4aee-4c40-ac6b-13c3cd09136c', '_blank')" style="cursor: pointer;">
                     <div class="cp-icon"><i class="fab fa-aws"></i></div>
                     <div class="cp-platform">AWS Educate ML Foundations</div>
                     <div class="cp-handle">AWS Educate</div>
                     <div class="cp-rating">July 2025</div>
                 </div>
 
-                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                <div class="cp-card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" onclick="window.open('https://www.credly.com/badges/6761433f-b4d0-4738-877e-5023e90c1bb3', '_blank')" style="cursor: pointer;">
                     <div class="cp-icon"><i class="fab fa-aws"></i></div>
                     <div class="cp-platform">AWS Academy Cloud Foundations</div>
                     <div class="cp-handle">AWS Academy</div>
@@ -1615,7 +1792,7 @@
             <div class="contact-content">
                 <h2 class="section-title">Get In Touch</h2>
                 <p class="section-subtitle">Let's collaborate on exciting cloud and dev projects</p>
-                
+
                 <div class="contact-links">
                     <a href="mailto:shivateja1602@gmail.com" class="contact-link">
                         <div class="contact-link-icon"><i class="fas fa-envelope"></i></div>
@@ -1625,7 +1802,8 @@
                         <div class="contact-link-icon"><i class="fab fa-github"></i></div>
                         <div class="contact-link-label">GitHub</div>
                     </a>
-                    <a href="https://www.linkedin.com/in/shiva-teja-nune-puttaparthi-cloud-engineer" target="_blank" class="contact-link">
+                    <a href="https://www.linkedin.com/in/shiva-teja-nune-puttaparthi-cloud-engineer" target="_blank"
+                        class="contact-link">
                         <div class="contact-link-icon"><i class="fab fa-linkedin"></i></div>
                         <div class="contact-link-label">LinkedIn</div>
                     </a>
@@ -1665,7 +1843,8 @@
                 <a href="https://github.com/shivateja1602" target="_blank" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/shiva-teja-nune-puttaparthi-cloud-engineer" target="_blank" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/shiva-teja-nune-puttaparthi-cloud-engineer" target="_blank"
+                    title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="https://wa.me/916305189399" target="_blank" title="WhatsApp">
@@ -1804,7 +1983,18 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+                    // Stagger animation based on index in parent
+                    const parent = entry.target.parentNode;
+                    if (parent && (parent.classList.contains('cp-grid') || parent.classList.contains('projects-grid') || parent.classList.contains('timeline'))) {
+                        const index = Array.from(parent.children).indexOf(entry.target);
+                        entry.target.style.transitionDelay = `${index * 0.1}s`;
+                    }
+                    
+                    // Small delay to ensure transitionDelay is applied before class addition
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, 10);
+                    
                     observer.unobserve(entry.target);
                 }
             });
@@ -1848,7 +2038,7 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-    
+
     <script>
         // Initialize AOS
         // Initialize Particles
@@ -1876,44 +2066,54 @@
         // Custom Cursor Logic
         const cursor = document.querySelector('.custom-cursor');
         const cursorDot = document.querySelector('.custom-cursor-dot');
-        
+
         let mouseX = 0;
         let mouseY = 0;
         let cursorX = 0;
         let cursorY = 0;
-        
+
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            
+
             // Dot follows exactly
             cursorDot.style.left = mouseX + 'px';
             cursorDot.style.top = mouseY + 'px';
+
             
-            // Hover effect on interactables
+                        // Hover effect on interactables
             const target = e.target;
-            if (target.closest('a') || target.closest('button') || target.closest('.project-card')) {
+            if (target.closest('a') || target.closest('button') || target.closest('.project-card') || target.closest('.cp-card')) {
                 cursor.classList.add('hover');
+                cursor.style.mixBlendMode = 'difference';
+                cursor.style.background = 'transparent';
             } else {
                 cursor.classList.remove('hover');
+                cursor.style.mixBlendMode = 'difference';
+                cursor.style.background = 'transparent';
             }
+
         });
-        
+
         // Smooth spring animation for the outer ring
         function animateCursor() {
             let dx = mouseX - cursorX;
             let dy = mouseY - cursorY;
-            
+
             cursorX += dx * 0.2;
             cursorY += dy * 0.2;
-            
+
             cursor.style.left = cursorX + 'px';
             cursor.style.top = cursorY + 'px';
-            
+
             requestAnimationFrame(animateCursor);
         }
         animateCursor();
+
+        
+
     </script>
 
 </body>
+
 </html>

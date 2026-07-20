@@ -19,10 +19,11 @@ const certifications = [
     type: "certification",
   },
   {
-    title: "Introduction to Jira",
-    issuer: "Simplilearn",
+    title: "Get started with Jira",
+    issuer: "Coursera Project Network",
     date: "July 2025",
     type: "certification",
+    href: "",
   },
   {
     title: "Introduction to Generative AI using AWS",

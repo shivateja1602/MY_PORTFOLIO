@@ -1,8 +1,7 @@
 "use client"
 
+import { motion } from "framer-motion"
 import { Award, ExternalLink } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 
 const certifications = [
   {
@@ -65,74 +64,103 @@ export function CertificationsSection() {
   const badges = certifications.filter((c) => c.type === "badge")
 
   return (
-    <section id="certifications" className="py-20 px-4">
+    <section id="certifications" className="py-20 px-4 bg-secondary/10">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Certifications & Badges</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Certifications & Badges</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Industry-recognized credentials demonstrating expertise in cloud technologies and AI.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-16">
           {/* Certifications */}
           <div>
-            <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
-              <Award className="w-5 h-5 text-primary" />
+            <motion.h3 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="text-2xl font-bold text-foreground mb-8 flex items-center gap-3"
+            >
+              <Award className="w-6 h-6 text-primary" />
               Certifications
-            </h3>
+            </motion.h3>
             <div className="space-y-4">
-              {certs.map((cert) => (
-                <Card key={cert.title} className="bg-black/30 backdrop-blur-2xl border-white/10 hover:border-primary/50 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
-                  <CardContent className="p-4">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-start gap-3 flex-1">
-                        {cert.logo && (
-                          <img
-                            src={cert.logo}
-                            alt={cert.issuer}
-                            className="w-8 h-8 object-contain shrink-0 mt-1"
-                            loading="lazy"
-                          />
-                        )}
-                        <div>
-                          <h4 className="font-medium text-foreground">{cert.title}</h4>
-                          <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                        </div>
+              {certs.map((cert, index) => (
+                <motion.div 
+                  key={cert.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  className="flex items-start justify-between gap-4 p-5 rounded-2xl hover:bg-secondary/40 transition-colors border border-transparent hover:border-border"
+                >
+                  <div className="flex items-start gap-4 flex-1">
+                    {cert.logo ? (
+                      <img src={cert.logo} alt={cert.issuer} className="w-10 h-10 object-contain shrink-0 mt-1" loading="lazy" />
+                    ) : (
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+                        <Award className="w-5 h-5 text-primary" />
                       </div>
-                      <Badge variant="secondary" className="bg-primary/10 text-primary shrink-0">
-                        {cert.date}
-                      </Badge>
+                    )}
+                    <div>
+                      <h4 className="font-semibold text-lg text-foreground leading-tight mb-1">{cert.title}</h4>
+                      <p className="text-muted-foreground">{cert.issuer}</p>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                  <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium shrink-0 hidden sm:block">
+                    {cert.date}
+                  </span>
+                </motion.div>
               ))}
             </div>
           </div>
 
           {/* Badges */}
           <div>
-            <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
-              <Award className="w-5 h-5 text-primary" />
+            <motion.h3 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="text-2xl font-bold text-foreground mb-8 flex items-center gap-3"
+            >
+              <Award className="w-6 h-6 text-primary" />
               Skill Badges
-            </h3>
+            </motion.h3>
             <div className="space-y-4">
-              {badges.map((badge) => (
-                <a key={badge.title} href={badge.href} target="_blank" rel="noopener noreferrer" className="block">
-                  <Card className="bg-black/30 backdrop-blur-2xl border-white/10 hover:border-primary/50 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
-                    <CardContent className="p-4">
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <h4 className="font-medium text-foreground">{badge.title}</h4>
-                          <p className="text-sm text-muted-foreground">{badge.issuer}</p>
-                        </div>
-                        <Badge variant="secondary" className="bg-secondary text-secondary-foreground shrink-0">
-                          {badge.date}
-                        </Badge>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </a>
+              {badges.map((badge, index) => (
+                <motion.a 
+                  key={badge.title} 
+                  href={badge.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  className="block group"
+                >
+                  <div className="flex items-start justify-between gap-4 p-5 rounded-2xl hover:bg-secondary/40 transition-colors border border-transparent hover:border-border">
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors flex items-center gap-2 leading-tight mb-1">
+                        {badge.title}
+                        <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </h4>
+                      <p className="text-muted-foreground">{badge.issuer}</p>
+                    </div>
+                    <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium shrink-0 hidden sm:block">
+                      {badge.date}
+                    </span>
+                  </div>
+                </motion.a>
               ))}
             </div>
           </div>

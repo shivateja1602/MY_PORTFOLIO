@@ -1,7 +1,7 @@
 "use client"
 
+import { motion } from "framer-motion"
 import { Briefcase, GraduationCap, Calendar } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 const timelineEntries = [
@@ -45,72 +45,61 @@ const timelineEntries = [
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 px-4 bg-secondary/30">
+    <section id="experience" className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Experience & Education</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Experience & Education</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl">
             Fresher profile with a strong academic foundation in software engineering and modern web technologies.
           </p>
-        </div>
+        </motion.div>
 
-        <Card className="mb-8 bg-black/30 backdrop-blur-2xl border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
-          <CardContent className="p-5">
-            <p className="text-sm md:text-base text-foreground">
-              I am currently seeking <span className="text-primary font-semibold">fresher opportunities</span> and open
-              to contributing across frontend, cloud, and AI-driven product teams.
-            </p>
-          </CardContent>
-        </Card>
+        <div className="w-full space-y-12">
+          {timelineEntries.map((exp, index) => {
+            const Icon = exp.type === "work" ? Briefcase : GraduationCap
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-border" />
-
-          <div className="space-y-8">
-            {timelineEntries.map((exp, index) => {
-              const isLeft = index % 2 === 0
-              const Icon = exp.type === "work" ? Briefcase : GraduationCap
-
-              return (
-                <div
-                  key={exp.title + exp.organization}
-                  className={`relative flex items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10" />
-
-                  {/* Content */}
-                  <div className={`ml-8 md:ml-0 md:w-1/2 ${isLeft ? "md:pr-12" : "md:pl-12"}`}>
-                    <Card className="bg-black/30 backdrop-blur-2xl border-white/10 hover:border-primary/50 transition-all shadow-[0_8px_30px_rgb(0,0,0,0.4)]">
-                      <CardContent className="p-6">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="p-1.5 rounded bg-primary/10 text-primary">
-                            <Icon className="w-4 h-4" />
-                          </div>
-                          <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
-                            <Calendar className="w-3 h-3 mr-1" />
-                            {exp.duration}
-                          </Badge>
-                        </div>
-                        <h3 className="text-lg font-semibold text-foreground mb-1">{exp.title}</h3>
-                        <p className="text-primary font-medium mb-1">{exp.organization}</p>
-                        <p className="text-sm text-muted-foreground mb-3">{exp.location}</p>
-                        <ul className="space-y-1">
-                          {exp.description.map((item, i) => (
-                            <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </CardContent>
-                    </Card>
+            return (
+              <motion.div
+                key={exp.title + exp.organization}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.15 }}
+                viewport={{ once: true, margin: "-50px" }}
+                className="relative pl-8 md:pl-10 border-l-2 border-border"
+              >
+                {/* Timeline dot */}
+                <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-foreground" />
+                
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-1.5 rounded-full bg-primary/10 text-primary">
+                    <Icon className="w-4 h-4" />
                   </div>
+                  <Badge variant="secondary" className="bg-secondary text-secondary-foreground pointer-events-none">
+                    <Calendar className="w-3 h-3 mr-1" />
+                    {exp.duration}
+                  </Badge>
                 </div>
-              )
-            })}
-          </div>
+                
+                <h3 className="text-2xl font-bold text-foreground mb-1">{exp.title}</h3>
+                <p className="text-lg text-primary font-medium mb-4">{exp.organization} | {exp.location}</p>
+                
+                <ul className="space-y-2">
+                  {exp.description.map((item, i) => (
+                    <li key={i} className="text-muted-foreground flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 mt-2 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

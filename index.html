@@ -123,7 +123,7 @@
             right: 0;
             z-index: 1000;
             background: rgba(10, 4, 4, 0.78);
-            backdrop-filter: blur(30px);
+            backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border-glow);
             padding: 1rem 2rem;
             transition: var(--transition);
@@ -131,8 +131,8 @@
 
         nav.scrolled {
             background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             box-shadow: 0 12px 34px rgba(255, 61, 46, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
         }
 
@@ -497,7 +497,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.5rem;
             text-align: center;
-            backdrop-filter: blur(30px);
+            backdrop-filter: blur(8px);
             transition: var(--transition);
         }
 
@@ -553,7 +553,7 @@
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.75rem;
-            backdrop-filter: blur(30px);
+            backdrop-filter: blur(8px);
             transition: var(--transition);
         }
 
@@ -605,7 +605,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(clamp(400px, 45%, 100%), 1fr));
             gap: 2rem;
         }
 
@@ -614,8 +614,8 @@
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.75rem;
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
@@ -729,7 +729,7 @@
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.5rem;
-            backdrop-filter: blur(30px);
+            backdrop-filter: blur(8px);
             transition: var(--transition);
         }
 
@@ -774,7 +774,7 @@
 
         .cp-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(clamp(300px, 30%, 100%), 1fr));
             gap: 2rem;
         }
 
@@ -783,7 +783,7 @@
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.75rem;
-            backdrop-filter: blur(30px);
+            backdrop-filter: blur(8px);
             text-align: center;
             transition: var(--transition);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
@@ -870,7 +870,7 @@
             text-decoration: none;
             color: var(--text-secondary);
             transition: var(--transition);
-            backdrop-filter: blur(30px);
+            backdrop-filter: blur(8px);
         }
 
         .contact-link:hover {
@@ -896,7 +896,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 0.75rem;
             padding: 2rem;
-            backdrop-filter: blur(30px);
+            backdrop-filter: blur(8px);
             margin-top: 2rem;
         }
 
@@ -1807,10 +1807,6 @@
                         <div class="contact-link-icon"><i class="fab fa-linkedin"></i></div>
                         <div class="contact-link-label">LinkedIn</div>
                     </a>
-                    <a href="https://wa.me/916305189399" target="_blank" class="contact-link">
-                        <div class="contact-link-icon"><i class="fab fa-whatsapp"></i></div>
-                        <div class="contact-link-label">WhatsApp</div>
-                    </a>
                 </div>
 
                 <form class="contact-form" onsubmit="handleFormSubmit(event)">
@@ -1846,9 +1842,6 @@
                 <a href="https://www.linkedin.com/in/shiva-teja-nune-puttaparthi-cloud-engineer" target="_blank"
                     title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://wa.me/916305189399" target="_blank" title="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
         </div>
@@ -1977,7 +1970,7 @@
         // Scroll reveal animation
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '-30% 0px -30% 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -2046,6 +2039,7 @@
             background: { color: { value: "transparent" } },
             fpsLimit: 60,
             interactivity: {
+                detectsOn: "window",
                 events: {
                     onHover: { enable: true, mode: "grab" },
                 },
